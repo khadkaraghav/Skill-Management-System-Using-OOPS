@@ -24,7 +24,7 @@ public class SkillDAOImpl implements SkillDAO {
         for (Skill skill : skillList) {
             if (skill.getId() == id) {
                 skillList.remove(skill);
-                hasDelete=true;
+                hasDelete = true;
                 break;
             }
         }
@@ -49,16 +49,16 @@ public class SkillDAOImpl implements SkillDAO {
 
     @Override
     public ArrayList<Skill> search(String param) {
-ArrayList<Skill> skills = new ArrayList<>();
-for (Skill skill:skillList){
-    String name = skill.getName().toLowerCase();
-    String desc = skill.getDescription().toLowerCase();
-    param = param.toLowerCase();
-    if (name.contains(param) || (desc.contains(param))){
-        skills.add(skill);
-    }
-}
-return skills;
+        ArrayList<Skill> skills = new ArrayList<>();
+        for (Skill skill : skillList) {
+            String name = skill.getName().toLowerCase();
+            String desc = skill.getDescription().toLowerCase();
+            param = param.toLowerCase();
+            if (name.contains(param) || (desc.contains(param))) {
+                skills.add(skill);
+            }
+        }
+        return skills;
 
     }
 

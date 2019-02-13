@@ -95,7 +95,79 @@ public class SkillView {
     }
 
 
+    public void search() {
+        System.out.println("Search skills");
+        while (true) {
+            skillDAO.search(keyboard.next()).forEach(s -> {
+                System.out.println(s.toString());
+            });
+            System.out.println("Do you want to search more (Y/N)");
+
+            if (keyboard.next().equalsIgnoreCase("n")) {
+                break;
+            }
+        }
+    }
+
+
+    public void controller() {
+
+        menu();
+
+        switch (keyboard.nextInt()) {
+
+            case 1:
+                add();
+                break;
+
+
+            case 2:
+                showAll();
+                break;
+
+            case 3:
+                searchById();
+                break;
+
+            case 4:
+                delete();
+                break;
+
+            case 5:
+                System.out.println("You have total of " + skillDAO.count() + " skills");
+                break;
+
+            case 6:
+                search();
+                break;
+
+            case 7:
+                exit();
+                break;
+
+        }
+    }
+
+    public static void menu() {
+
+        System.out.println("==================================");
+        System.out.println("Welcome to Skill Manager");
+        System.out.println("===================================");
+
+        System.out.println("1. Add Skill");
+        System.out.println("2. Show All Skills");
+        System.out.println("3. Search By Id");
+        System.out.println("4. Delete");
+        System.out.println("5. Count");
+        System.out.println("6. Search");
+        System.out.println("Enter your choice [1-7]");
+
+
+    }
 }
+
+
+
 
 
 
